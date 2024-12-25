@@ -3,7 +3,7 @@
 
 | Predicted | Actual (label)
 |--------|------- 
-| ![Iris](https://github.com/chimaOkwuokei/serverless-ml/tree/main/assets/latest_iris.png) | ![Iris](https://github.com/chimaOkwuokei/serverless-ml/tree/main/assets/actual_iris.png) 
+| ![Iris](https://github.com/chimaOkwuokei/serverless-ml/blob/gh-pages/assets/latest_iris.png) | ![Iris](https://github.com/chimaOkwuokei/serverless-ml/blob/gh-pages/assets/actual_iris.png) 
 
  * Data source: synthetic data
  * Update frequency: daily
@@ -12,7 +12,7 @@
 
 | Recent Predictions/Outcomes | Confusion matrix of historical model accuracy 
 |--------|------- 
-| ![Recent predictions](https://github.com/chimaOkwuokei/serverless-ml/tree/main/assets/df_recent.png) | ![Confusion Matrix](https://github.com/chimaOkwuokei/serverless-ml/tree/main/assets/confusion_matrix.png)
+| ![Recent predictions](https://github.com/chimaOkwuokei/serverless-ml/blob/gh-pages/assets/df_recent.png) | ![Confusion Matrix](https://github.com/chimaOkwuokei/serverless-ml/blob/gh-pages/assets/confusion_matrix.png)
 
 
 ## Module 2 - Credit Card Fraud Dashboard
