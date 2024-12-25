@@ -24,7 +24,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
+
+      - name: install kafka library
+        run: pip install confluent-kafka
+      
+      - name: set debug mode
+        run: export KAFKA_DEBUG=true
+
       - name: Grant execute permissions to the script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
