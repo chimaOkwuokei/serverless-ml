@@ -2,8 +2,7 @@
 ## Module 1 - Today's Iris Flower 
 
 | Predicted | Actual (label)
-|--------|------- 
-https://raw.githubusercontent.com/user123/ml-models/main/assets/iris.png
+|--------|-------|
 
 | ![Iris](https://raw.githubusercontent.com/chimaOkwuokei/serverless-ml/gh-pages/assets/latest_iris.png) | ![Iris](https://raw.githubusercontent.com/chimaOkwuokei/serverless-ml/gh-pages/assets/actual_iris.png) 
 
