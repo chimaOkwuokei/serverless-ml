@@ -3,7 +3,8 @@ name: iris-feature-and-prediction-pipelines
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* * * * *'
+    - cron: '0 * * * *'
+
 
 jobs:
   test_schedule:
