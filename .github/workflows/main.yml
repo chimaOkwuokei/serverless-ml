@@ -29,6 +29,9 @@ jobs:
 
       - name: install kafka library
         run: pip install confluent-kafka
+
+      - name: install random library
+        run: pip install random
       
       - name: set debug mode
         run: export KAFKA_DEBUG=true
@@ -36,12 +39,12 @@ jobs:
       - name: Grant execute permissions to the script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: chmod +x ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.py
+        run: chmod +x ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.sh
 
       - name: execute python workflows from bash script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.py
+        run: ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.sh
 
       # - name: publish github pages
       #   uses: stefanzweifel/git-auto-commit-action@v4
