@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clear Cache
-      run: |
-        rm -rf ./cache_dir
+        run: |
+          rm -rf ./cache_dir
 
       - name: Checkout Repo Content
         uses: actions/checkout@v3
