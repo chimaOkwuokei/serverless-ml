@@ -25,19 +25,19 @@ y_pred = model.predict(batch_data)
 
 # Save prediction output as an image
 flower = y_pred[y_pred.size - 1]
-flower_img = "assets/" + flower + ".png"
-img = Image.open(flower_img)
-img.save("../../assets/latest_iris.png")
+# flower_img = "assets/" + flower + ".png"
+# img = Image.open(flower_img)
+# img.save("../../assets/latest_iris.png")
 
 # Retrieve actual label
 iris_fg = fs.get_feature_group(name="iris", version=1)
 df = iris_fg.read()
 label = df.iloc[-1]["variety"]
 
-# Save actual label as an image
-label_flower = "assets/" + label + ".png"
-img = Image.open(label_flower)
-img.save("../../assets/actual_iris.png")
+# # Save actual label as an image
+# label_flower = "assets/" + label + ".png"
+# img = Image.open(label_flower)
+# img.save("../../assets/actual_iris.png")
 
 # Monitor predictions
 monitor_fg = fs.get_or_create_feature_group(

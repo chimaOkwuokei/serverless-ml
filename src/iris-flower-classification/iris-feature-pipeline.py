@@ -47,7 +47,7 @@ else:
     iris_df = get_random_iris_flower()
 
 iris_df["uuid"] = [str(uuid.uuid4()) for _ in range(len(iris_df))]
-
+print(iris_df)
 
 # Authenticate with Hopsworks using your API Key
 project = hopsworks.login()
