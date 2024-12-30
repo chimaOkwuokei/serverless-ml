@@ -3,45 +3,40 @@ name: iris-feature-and-prediction-pipelines
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* * * * *'
-
+    - cron: '* * * * *' # Adjust frequency (e.g., hourly)
 
 jobs:
   test_schedule:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo content
-        uses: actions/checkout@v2
+      - name: Checkout Repo Content
+        uses: actions/checkout@v3
 
-      - name: setup python
+      - name: Setup Python
         uses: actions/setup-python@v3
         with:
           python-version: '3.12.2'
 
-      - name: Install Jupyter
-        run: |
-         python -m pip install jupyter
-          
-      - name: install python packages
+      - name: Install Python Packages
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install confluent-kafka
 
-      - name: install kafka library
-        run: pip install confluent-kafka
-        
-      - name: set debug mode
-        run: export KAFKA_DEBUG=true
+      - name: Grant Execute Permissions
+        run: |
+          chmod +x ./src/iris-flower-classification/iris-feature-pipeline.py
+          chmod +x ./src/iris-flower-classification/iris-batch-inference-pipeline.py
 
-      - name: Grant execute permissions to the script
+      - name: Execute Feature Pipeline
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: chmod +x ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.sh
+        run: python ./src/iris-flower-classification/iris-feature-pipeline.py
 
-      - name: execute python workflows from bash script
+      - name: Execute Batch Inference Pipeline
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.sh
+        run: python ./src/iris-flower-classification/iris-batch-inference-pipeline.py
 
       # - name: publish github pages
       #   uses: stefanzweifel/git-auto-commit-action@v4
