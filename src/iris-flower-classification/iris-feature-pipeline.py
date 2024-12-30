@@ -1,4 +1,5 @@
 import random
+import time
 import pandas as pd
 import hopsworks
 import uuid
@@ -6,20 +7,22 @@ import uuid
 # Set to true initially
 BACKFILL = False
 
-### Synthetic Data Functions
 def generate_flower(name, sepal_len_max, sepal_len_min, sepal_width_max, sepal_width_min, 
                     petal_len_max, petal_len_min, petal_width_max, petal_width_min):
     """
     Returns a single iris flower as a single row in a DataFrame
     """
+    seed = int(time.time() * random.random())  # Add dynamic seed
+    random.seed(seed)  # Seed random with new entropy
     df = pd.DataFrame({
-        "sepal_length": [random.uniform(sepal_len_max, sepal_len_min)],
-        "sepal_width": [random.uniform(sepal_width_max, sepal_width_min)],
-        "petal_length": [random.uniform(petal_len_max, petal_len_min)],
-        "petal_width": [random.uniform(petal_width_max, petal_width_min)]
+        "sepal_length": [random.uniform(sepal_len_min, sepal_len_max)],
+        "sepal_width": [random.uniform(sepal_width_min, sepal_width_max)],
+        "petal_length": [random.uniform(petal_len_min, petal_len_max)],
+        "petal_width": [random.uniform(petal_width_min, petal_width_max)]
     })
     df['variety'] = name
     return df
+
 
 def get_random_iris_flower():
     """
@@ -41,7 +44,7 @@ def get_random_iris_flower():
     return iris_df
 
 # Backfill or create new synthetic input data
-if BACKFILL == True:
+if BACKFILL:
     iris_df = pd.read_csv("https://repo.hops.works/master/hopsworks-tutorials/data/iris.csv")
 else:
     iris_df = get_random_iris_flower()
