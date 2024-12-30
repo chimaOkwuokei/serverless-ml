@@ -33,10 +33,10 @@ jobs:
       - name: set debug mode
         run: export KAFKA_DEBUG=true
 
-      # - name: Grant execute permissions to the script
-      #   env: 
-      #     HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-      #   run: chmod +x ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.sh
+      - name: Grant execute permissions to the script
+        env: 
+          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+        run: chmod +x ./src/iris-flower-classification/scripts/run-feature-and-prediction-pipelines.py
 
       - name: execute python workflows from bash script
         env: 
