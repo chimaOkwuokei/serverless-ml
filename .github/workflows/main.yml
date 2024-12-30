@@ -29,10 +29,7 @@ jobs:
 
       - name: install kafka library
         run: pip install confluent-kafka
-
-      - name: install random library
-        run: pip install random
-      
+        
       - name: set debug mode
         run: export KAFKA_DEBUG=true
 
