@@ -47,7 +47,7 @@ monitor_fg = fs.get_or_create_feature_group(name="aqi_predictions",
                                   description="Air Quality Prediction/Outcome Monitoring"
                                  )
 
-now = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+now = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 last_row = df.iloc[-1]
 data = {
     'country': [last_row['country']],  # Convert to list for DataFrame compatibility
