@@ -1,0 +1,8 @@
+hopsworks
+joblib
+scikit-learn
+random
+pandas
+uuid
+datetime
+seaborn

@@ -1,9 +1,10 @@
-name: iris-feature-and-prediction-pipelines
+# name: iris-feature-and-prediction-pipelines
+name: aqi-feature-and-prediction-pipelines
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* * * * *' # Adjust frequency (e.g., hourly)
+    - cron: '0 * * * *' # Adjust frequency (e.g., hourly)
 
 jobs:
   test_schedule:
@@ -34,18 +35,19 @@ jobs:
 
       - name: Grant Execute Permissions
         run: |
-          chmod +x ./src/iris-flower-classification/iris-feature-pipeline.py
-          chmod +x ./src/iris-flower-classification/iris-batch-inference-pipeline.py
-
+          chmod +x ./src/aqi-prediction/aqi-feature-pipeline.py
+          chmod +x ./src/aqi-prediction/aqi-batch-inference-pipeline.py
+ # chmod +x ./src/iris-flower-classification/iris-feature-pipeline.py
+ # chmod +x ./src/iris-flower-classification/iris-batch-inference-pipeline.py
       - name: Execute Feature Pipeline
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: python ./src/iris-flower-classification/iris-feature-pipeline.py
+        run: python ./src/aqi-prediction/aqi-feature-pipeline.py
 
       - name: Execute Batch Inference Pipeline
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: python ./src/iris-flower-classification/iris-batch-inference-pipeline.py
+        run: python ./src/aqi-prediction/aqi-batch-inference-pipeline.py
 
       # - name: publish github pages
       #   uses: stefanzweifel/git-auto-commit-action@v4
