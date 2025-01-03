@@ -18,6 +18,10 @@ def generate_aqi_data_dynamic():
     # Randomly select a row from the dataset for Country, City, lat, and lng
     location_data = aqi_df.sample(1).iloc[0]
 
+
+    seed = int(time.time() * random.random())  # Add dynamic seed
+    random.seed(seed)  # Seed random with new entropy
+    
     # Define ranges for AQI components
     aqi_ranges = {
         "aqi_value": (0, 500),
