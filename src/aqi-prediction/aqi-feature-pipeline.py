@@ -94,7 +94,7 @@ aqi_df["uuid"] = [str(uuid.uuid4()) for _ in range(len(aqi_df))]
 aqi_df = aqi_df.dropna()
 # Refactoring column names
 aqi_df.columns = [col.lower().replace(' ', '_').replace('.', '') for col in aqi_df.columns]
-aqi_df
+print(aqi_df)
 
 
 
