@@ -12,7 +12,7 @@ def generate_aqi_data_dynamic():
     Returns a single random AQI data row as a DataFrame, dynamically generated from the existing dataset.
     """
     # Load your dataset, so it can refresh and generate new values
-    aqi_df = pd.read_csv("../aqi.csv")
+    aqi_df = pd.read_csv("https://raw.githubusercontent.com/chimaOkwuokei/serverless-ml/refs/heads/main/src/aqi-prediction/aqi.csv")
     # Drop rows with any empty (NaN or None) values
     aqi_df = aqi_df.dropna()
     # Randomly select a row from the dataset for Country, City, lat, and lng
@@ -78,7 +78,7 @@ def get_random_aqi_values():
 
 
 if BACKFILL == True:
-    aqi_df = pd.read_csv("../aqi.csv")
+    aqi_df = pd.read_csv("https://raw.githubusercontent.com/chimaOkwuokei/serverless-ml/refs/heads/main/src/aqi-prediction/aqi.csv")
     # Example list of columns to drop
     columns_to_drop = ['CO AQI Category', 'Ozone AQI Category', 'NO2 AQI Category', 'PM2.5 AQI Category']
 
