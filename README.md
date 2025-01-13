@@ -80,7 +80,7 @@ Contributions
 Contributions are welcome! Please fork the repository and submit pull requests.
 
 Contact
-For any queries or collaboration, please reach out via GitHub issues (insert-your-github-link-here).
+For any queries or collaboration, please reach out via GitHub issues (https://github.com/chimaOkwuokei/serverless-ml/).
 
 Thank you for exploring our Air Quality Prediction Dashboard! Let's work together to breathe cleaner air.
 
